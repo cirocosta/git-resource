@@ -144,7 +144,9 @@ jq -n "{
     ref: $commit,
     author: $commit_author,
     message: $commit_message,
-    date: $commit_date
+    date: $commit_date,
+    uri: \"$uri\",
+    branch: \"$branch\"
   },
   metadata: $(git_metadata)
 }" >&3
