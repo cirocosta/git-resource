@@ -145,7 +145,7 @@ jq -n "{
     author: $commit_author,
     message: $commit_message,
     date: $commit_date,
-    uri: \"$uri\",
+    repository: \"$uri\",
     branch: \"$branch\"
   },
   metadata: $(git_metadata)
