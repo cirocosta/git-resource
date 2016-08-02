@@ -134,7 +134,17 @@ else
   push_src_and_tags
 fi
 
+commit=$(git rev-parse HEAD | jq -R .)
+commit_author=$(git log -1 --format=format:%an | jq -s -R .)
+commit_date=$(git log -1 --format=format:%ci | jq -R .)
+commit_message=$(git log -1 --format=format:%B | jq -s -R .)
+
 jq -n "{
-  version: {ref: $(git rev-parse HEAD | jq -R .)},
+  version: {
+    ref: $commit,
+    author: $commit_author,
+    message: $commit_message,
+    date: $commit_date
+  },
   metadata: $(git_metadata)
 }" >&3
