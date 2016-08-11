@@ -72,7 +72,7 @@ fi
 
 commit=$(git rev-parse HEAD | jq -R .)
 commit_author=$(git log -1 --format=format:%an | jq -s -R .)
-commit_date=$(git log -1 --format=format:%ci | jq -R .)
+commit_date=$(git log -1 --format=format:%ct | jq -R .)
 commit_message=$(git log -1 --format=format:%B | jq -s -R .)
 commit_author_email=$(git log -1 --format=format:%ce | jq -s -R .)
 
